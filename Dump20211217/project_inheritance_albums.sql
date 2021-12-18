@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.26, for macos11 (x86_64)
 --
--- Host: 127.0.0.1    Database: project_inheritance
+-- Host: localhost    Database: project_inheritance
 -- ------------------------------------------------------
 -- Server version	8.0.26
 
@@ -16,31 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `playlists`
+-- Table structure for table `albums`
 --
 
-DROP TABLE IF EXISTS `playlists`;
+DROP TABLE IF EXISTS `albums`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `playlists` (
+CREATE TABLE `albums` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `description` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `listener_id` int DEFAULT NULL,
+  `year` int DEFAULT NULL,
+  `artist_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKk3n0omv72elqqbf72994aclvl` (`listener_id`),
-  CONSTRAINT `FKk3n0omv72elqqbf72994aclvl` FOREIGN KEY (`listener_id`) REFERENCES `listeners` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `albums_to_artists_idx` (`artist_id`) /*!80000 INVISIBLE */,
+  CONSTRAINT `album_to_artist` FOREIGN KEY (`artist_id`) REFERENCES `artists` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `playlists`
+-- Dumping data for table `albums`
 --
 
-LOCK TABLES `playlists` WRITE;
-/*!40000 ALTER TABLE `playlists` DISABLE KEYS */;
-INSERT INTO `playlists` VALUES (5,'piano','PianoSong',NULL),(6,'kpop','KpopSong',NULL),(7,'chinese','ChineseSong',20),(8,'favorite','MyFavorite',20);
-/*!40000 ALTER TABLE `playlists` ENABLE KEYS */;
+LOCK TABLES `albums` WRITE;
+/*!40000 ALTER TABLE `albums` DISABLE KEYS */;
+INSERT INTO `albums` VALUES (1,'Come Away with Me',2002,4),(2,'Unorthodox Jukebox',2012,5),(4,'Test Album',2009,NULL),(7,'songs',2007,1),(8,'Speak Me',NULL,6),(10,'test album 2',NULL,NULL),(13,'sdasdad',NULL,1);
+/*!40000 ALTER TABLE `albums` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-17 19:56:04
+-- Dump completed on 2021-12-17 21:02:32

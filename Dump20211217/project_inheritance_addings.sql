@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.26, for macos11 (x86_64)
 --
--- Host: 127.0.0.1    Database: project_inheritance
+-- Host: localhost    Database: project_inheritance
 -- ------------------------------------------------------
 -- Server version	8.0.26
 
@@ -16,36 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `listeners`
+-- Table structure for table `addings`
 --
 
-DROP TABLE IF EXISTS `listeners`;
+DROP TABLE IF EXISTS `addings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `listeners` (
-  `id` int NOT NULL,
-  `date_of_birth` date DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `first_name` varchar(255) DEFAULT NULL,
-  `last_name` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  `vip` int DEFAULT NULL,
+CREATE TABLE `addings` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `song_id` int DEFAULT NULL,
   `playlist_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK7dwvm0hmir9014q24iypyd1hd` (`playlist_id`),
-  CONSTRAINT `FK7dwvm0hmir9014q24iypyd1hd` FOREIGN KEY (`playlist_id`) REFERENCES `playlists` (`id`)
+  KEY `addings_to_song_idx` (`song_id`) /*!80000 INVISIBLE */,
+  KEY `addings_to_playlist_idx` (`playlist_id`),
+  CONSTRAINT `addings_to_playlist` FOREIGN KEY (`playlist_id`) REFERENCES `playlists` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `addings_to_song` FOREIGN KEY (`song_id`) REFERENCES `songs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `listeners`
+-- Dumping data for table `addings`
 --
 
-LOCK TABLES `listeners` WRITE;
-/*!40000 ALTER TABLE `listeners` DISABLE KEYS */;
-INSERT INTO `listeners` VALUES (20,'1996-12-29','Email','Xiuge ','Zheng','Password','XiugeZ',0,NULL),(21,'1999-12-31','peter@gmail.com','Peter','Light','PeterPass','PeterL',0,NULL),(22,'1998-10-31','james@gmail.com','James','Hunter','JamesPass','JamesH',1,NULL);
-/*!40000 ALTER TABLE `listeners` ENABLE KEYS */;
+LOCK TABLES `addings` WRITE;
+/*!40000 ALTER TABLE `addings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `addings` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -57,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-17 19:56:06
+-- Dump completed on 2021-12-17 21:02:32

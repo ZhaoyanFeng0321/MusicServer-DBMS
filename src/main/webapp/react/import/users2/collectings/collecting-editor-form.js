@@ -59,13 +59,13 @@ const CollectingEditorForm = () => {
                 Delete
             </button>
             <button className="btn btn-success"
-                    onClick={() => createCollecting(lid, pid, collecting)}>
+                    onClick={() => createCollecting(collecting.listenerId, collecting.playlistId, collecting)}>
                 Create
             </button>
-            <button className="btn btn-primary"
-                    onClick={() => updateCollecting(collecting.id, collecting)}>
-                Save
-            </button>
+            {/*<button className="btn btn-primary"*/}
+            {/*        onClick={() => updateCollecting(collecting.id, collecting)}>*/}
+            {/*    Save*/}
+            {/*</button>*/}
             <br/>
 
             {/*<Link to={`/listeners/${collecting.listenerId}`}>*/}

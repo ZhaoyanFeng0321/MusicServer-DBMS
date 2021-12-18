@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.26, for macos11 (x86_64)
 --
--- Host: 127.0.0.1    Database: project_inheritance
+-- Host: localhost    Database: project_inheritance
 -- ------------------------------------------------------
 -- Server version	8.0.26
 
@@ -16,33 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `artists`
+-- Table structure for table `sections`
 --
 
-DROP TABLE IF EXISTS `artists`;
+DROP TABLE IF EXISTS `sections`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `artists` (
+CREATE TABLE `sections` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(45) DEFAULT NULL,
-  `last_name` varchar(45) DEFAULT NULL,
-  `username` varchar(45) DEFAULT NULL,
-  `password` varchar(45) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `date_of_birth` date DEFAULT NULL,
-  `language` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `name` varchar(255) DEFAULT NULL,
+  `online` tinyint(1) DEFAULT '1',
+  `seats` int DEFAULT NULL,
+  `semester` varchar(255) DEFAULT NULL,
+  `year` int DEFAULT NULL,
+  `course_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK7ty9cevpq04d90ohtso1q8312` (`course_id`),
+  CONSTRAINT `FK7ty9cevpq04d90ohtso1q8312` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `artists`
+-- Dumping data for table `sections`
 --
 
-LOCK TABLES `artists` WRITE;
-/*!40000 ALTER TABLE `artists` DISABLE KEYS */;
-INSERT INTO `artists` VALUES (1,'Faye','Wong','FayWong','WongPass','faywong@gmail.com','1988-05-30','Chinese/Cantonese'),(4,'Norah','Jones','jonesN','jonesN','norahjones@gmail.com','1979-03-30','English'),(5,'Bruno','Mars','marsB','marsB','brunomars@gmail.com','1985-10-08','English'),(6,'Taylor','Swift','swiftT','swiftT','taylorswift@gmail.com','1989-12-13','English');
-/*!40000 ALTER TABLE `artists` ENABLE KEYS */;
+LOCK TABLES `sections` WRITE;
+/*!40000 ALTER TABLE `sections` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sections` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-17 19:56:05
+-- Dump completed on 2021-12-17 21:02:31

@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.26, for macos11 (x86_64)
 --
--- Host: 127.0.0.1    Database: project_inheritance
+-- Host: localhost    Database: project_inheritance
 -- ------------------------------------------------------
 -- Server version	8.0.26
 
@@ -16,33 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `songs`
+-- Table structure for table `collectings`
 --
 
-DROP TABLE IF EXISTS `songs`;
+DROP TABLE IF EXISTS `collectings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `songs` (
+CREATE TABLE `collectings` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `genre` varchar(45) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `album_id` int DEFAULT NULL,
+  `listener_id` int DEFAULT NULL,
+  `playlist_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `songs_to_album_idx` (`album_id`),
-  KEY `songs_to_genre_idx` (`genre`) /*!80000 INVISIBLE */,
-  CONSTRAINT `songs_to_album` FOREIGN KEY (`album_id`) REFERENCES `albums` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `songs_to_genre` FOREIGN KEY (`genre`) REFERENCES `genres` (`genre`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `collectings_to_listener_idx` (`listener_id`) /*!80000 INVISIBLE */,
+  KEY `collectings_to_playlist_idx` (`playlist_id`),
+  CONSTRAINT `collectings_to_listener` FOREIGN KEY (`listener_id`) REFERENCES `listeners` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `collectings_to_playlist` FOREIGN KEY (`playlist_id`) REFERENCES `playlists` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `songs`
+-- Dumping data for table `collectings`
 --
 
-LOCK TABLES `songs` WRITE;
-/*!40000 ALTER TABLE `songs` DISABLE KEYS */;
-INSERT INTO `songs` VALUES (1,'JAZZ','Don\'t Know Why',1),(2,'COUNTRY','Seven Years',1),(3,'POP','Young Girls',2),(4,'HIPHOP','Locked out of Heaven',2),(6,'POP','An Yong',7),(9,'JAZZ','Me',8),(11,'COUNTRY','Hello',8),(17,NULL,'asdaasd',13);
-/*!40000 ALTER TABLE `songs` ENABLE KEYS */;
+LOCK TABLES `collectings` WRITE;
+/*!40000 ALTER TABLE `collectings` DISABLE KEYS */;
+INSERT INTO `collectings` VALUES (4,20,8),(5,22,8),(6,22,5),(11,21,5),(12,21,7);
+/*!40000 ALTER TABLE `collectings` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-17 19:56:07
+-- Dump completed on 2021-12-17 21:02:31

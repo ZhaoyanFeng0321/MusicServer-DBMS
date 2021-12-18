@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.26, for macos11 (x86_64)
 --
--- Host: 127.0.0.1    Database: project_inheritance
+-- Host: localhost    Database: project_inheritance
 -- ------------------------------------------------------
 -- Server version	8.0.26
 
@@ -16,25 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `hibernate_sequence`
+-- Table structure for table `songs`
 --
 
-DROP TABLE IF EXISTS `hibernate_sequence`;
+DROP TABLE IF EXISTS `songs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `hibernate_sequence` (
-  `next_val` bigint DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `songs` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `genre` varchar(45) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `album_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `songs_to_album_idx` (`album_id`),
+  KEY `songs_to_genre_idx` (`genre`) /*!80000 INVISIBLE */,
+  CONSTRAINT `songs_to_album` FOREIGN KEY (`album_id`) REFERENCES `albums` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `songs_to_genre` FOREIGN KEY (`genre`) REFERENCES `genres` (`genre`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `hibernate_sequence`
+-- Dumping data for table `songs`
 --
 
-LOCK TABLES `hibernate_sequence` WRITE;
-/*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
-INSERT INTO `hibernate_sequence` VALUES (25);
-/*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
+LOCK TABLES `songs` WRITE;
+/*!40000 ALTER TABLE `songs` DISABLE KEYS */;
+INSERT INTO `songs` VALUES (1,'JAZZ','Don\'t Know Why',1),(2,'COUNTRY','Seven Years',1),(3,'POP','Young Girls',2),(4,'HIPHOP','Locked out of Heaven',2),(6,'POP','An Yong',7),(9,'JAZZ','Me',8),(11,'COUNTRY','Hello',8),(17,NULL,'asdaasd',13),(18,'POP','nice song',7),(19,'JAZZ','another song',7);
+/*!40000 ALTER TABLE `songs` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -46,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-17 19:56:06
+-- Dump completed on 2021-12-17 21:02:32
