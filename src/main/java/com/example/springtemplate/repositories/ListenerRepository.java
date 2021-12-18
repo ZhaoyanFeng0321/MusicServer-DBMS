@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface ListenerRepository
         extends CrudRepository<Listener, Integer> { // implements ORM access to database based on existing implementation
+
   @Query(value = "SELECT * FROM listeners",
           nativeQuery = true) // override SQL query used to retrieve all listeners
   public List<Listener> findAllListeners(); // wrap query in high-level method

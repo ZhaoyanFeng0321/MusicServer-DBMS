@@ -9,9 +9,16 @@ import java.util.List;
 
 public interface CollectingRepository
         extends CrudRepository<Collecting, Integer> {
-    @Query(value = "select * from collectings c, playlists p where c.playlist_id = p.id and c.listener_id = :lid", nativeQuery = true)
-    public List<Collecting> findPlaylistsForListener(@Param("lid") Integer lid);
 
-    @Query(value = "select * from collectings c, listeners l where c.listener_id = l.id and c.playlist_id = :pid", nativeQuery = true)
-    public List<Collecting> findListenersForPlaylist(@Param("pid") Integer pid);
+    @Query(value = "SELECT * FROM collectings", nativeQuery = true)
+    public List<Collecting> findAllCollectings();
+
+    @Query(value = "SELECT * FROM collectings WHERE id=:cid", nativeQuery = true)
+    public Collecting findCollectingById(@Param("cid") Integer id);
+
+//    @Query(value = "select * from collectings c, playlists p where c.playlist_id = p.id and c.listener_id = :lid", nativeQuery = true)
+//    public List<Collecting> findPlaylistsForListener(@Param("lid") Integer lid);
+//
+//    @Query(value = "select * from collectings c, listeners l where c.listener_id = l.id and c.playlist_id = :pid", nativeQuery = true)
+//    public List<Collecting> findListenersForPlaylist(@Param("pid") Integer pid);
 }

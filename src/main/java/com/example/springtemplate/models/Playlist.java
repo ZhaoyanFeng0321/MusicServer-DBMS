@@ -1,5 +1,7 @@
 package com.example.springtemplate.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,8 +15,17 @@ public class Playlist {
     private String title;
     private String description;
 
-    @OneToMany(mappedBy = "playlist", cascade = CascadeType.REMOVE)
-    private List<Collecting> listeners;
+    @OneToMany(mappedBy = "playlist")
+    @JsonIgnore
+    private List<Collecting> collectings;
+
+    public List<Collecting> getCollectings() {
+        return collectings;
+    }
+
+    public void setCollectings(List<Collecting> collectings) {
+        this.collectings = collectings;
+    }
 
     public Integer getId() {
         return id;
@@ -26,14 +37,6 @@ public class Playlist {
 
     public String getTitle() {
         return title;
-    }
-
-    public List<Collecting> getListeners() {
-        return listeners;
-    }
-
-    public void setListeners(List<Collecting> listeners) {
-        this.listeners = listeners;
     }
 
     public void setTitle(String title) {

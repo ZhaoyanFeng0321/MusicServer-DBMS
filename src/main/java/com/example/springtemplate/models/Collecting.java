@@ -14,21 +14,21 @@ public class Collecting {
 
     @ManyToOne
     @JsonIgnore
-    private Playlist playlist;
+    Playlist playlist;
 
     @ManyToOne
     @JsonIgnore
-    private Listener listener;
+    Listener listener;
 
-    @Transient
-    public String getListenerInfo() {
-        return listener.getFirstName() + " " + listener.getLastName() + " " + listener.getUsername() + " " + listener.getPassword() + " " + listener.getEmail() + " " + listener.getDateOfBirth() + " " + listener.getVip();
-    }
-
-    @Transient
-    public String getPlaylistInfo() {
-        return playlist.getTitle() + " " + playlist.getDescription();
-    }
+//    @Transient
+//    public String getListenerInfo() {
+//        return listener.getFirstName() + " " + listener.getLastName() + " " + listener.getUsername() + " " + listener.getPassword() + " " + listener.getEmail() + " " + listener.getDateOfBirth() + " " + listener.getVip();
+//    }
+//
+//    @Transient
+//    public String getPlaylistInfo() {
+//        return playlist.getTitle() + " " + playlist.getDescription();
+//    }
 
 
     public Integer getId() {
@@ -39,12 +39,9 @@ public class Collecting {
         this.id = id;
     }
 
-    public Playlist getPlaylist() {
-        return playlist;
-    }
-
-    public void setPlaylist(Playlist playlist) {
-        this.playlist = playlist;
+    @Transient
+    public Integer getListenerId(){
+        return listener.getId();
     }
 
     public Listener getListener() {
@@ -54,5 +51,20 @@ public class Collecting {
     public void setListener(Listener listener) {
         this.listener = listener;
     }
+
+    @Transient
+    public Integer getPlaylistId(){
+        return playlist.getId();
+    }
+
+    public Playlist getPlaylist() {
+        return playlist;
+    }
+
+    public void setPlaylist(Playlist playlist) {
+        this.playlist = playlist;
+    }
+
+
 }
 

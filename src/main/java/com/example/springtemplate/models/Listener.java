@@ -10,23 +10,24 @@ import java.util.List;
 @Table(name="listeners") // CREATE TABLE `listeners`
 public class Listener extends User{
   @Column(name = "VIP", nullable = true)
-  private String vip;
+  private Integer vip;
 
-  public List<Collecting> getPlaylists() {
-    return playlists;
+  @OneToMany(mappedBy = "listener")
+  @JsonIgnore
+  private List<Collecting> collectings;
+
+  public Integer getVip() { return vip; }
+  public void setVip(Integer vip) { this.vip = vip; }
+
+  public List<Collecting> getCollectings() {
+    return collectings;
   }
 
-  public void setPlaylists(List<Collecting> playlists) {
-    this.playlists = playlists;
+  public void setCollectings(List<Collecting> collectings) {
+    this.collectings = collectings;
   }
 
-  @OneToMany(mappedBy = "listener", cascade = CascadeType.REMOVE)
-  private List<Collecting> playlists;
-
-  public String getVip() { return vip; }
-  public void setVip(String vip) { this.vip = vip; }
-
-  public Listener(String username, String password, String first_name, String last_name, String email, Date date_of_birth, String vip) {
+  public Listener(String username, String password, String first_name, String last_name, String email, Date date_of_birth, Integer vip) {
     super(username, password, first_name, last_name, email, date_of_birth);
     this.vip = vip;
   }
