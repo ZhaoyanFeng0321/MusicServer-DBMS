@@ -18,7 +18,7 @@ We start with describing the database as a UML class diagram. Then we implemente
 
 Finally, we connect database to frontend, backend, and make sure all platforms are running correctly. 
 
-UML:  []()
+UML:  [https://github.com/ZhaoyanFeng0321/db_design_final_project_database/blob/master/db_design_final_project_UML.pdf]()
 
 Solution statement: 
 
