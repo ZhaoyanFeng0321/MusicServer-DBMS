@@ -1,10 +1,10 @@
-### Music Management System (Simple Web Project)
+## Music Management System (Simple Web Project)
+This is a class final project of CS5200 Database Management. The main objective of this project is to build and maintain a database of a web apps based on client-server architecture.
 
-#### Contributors: 
+_Contributed by Zhaoyan Feng / Xiuge Zheng / Mengyue Duan_
 
-Zhaoyan Feng / Xiuge Zheng / Mengyue Duan
 
-#### What to solve?
+### What to solve?
 
 In this project, we are trying to build a music platform which can interact between Listener and Artist. Listener can collect whatever their favorite songs into the playlist. Also, Artist can release their new album and upload their new songs into different albums.
 
@@ -14,7 +14,7 @@ Finally, we connect database to frontend, backend, and make sure all platforms a
 
 
 
-#### How we solved?
+### How we solved?
 
 Our solution based on the client-server Architecture:
 
@@ -22,7 +22,9 @@ Our solution based on the client-server Architecture:
 
 
 
-##### **i. database management (MySQL, Java, Javascript)**
+#### **i. database management (MySQL, Java)**
+
+Technically, we applied ORM (Object–Relational Mapping) to convert data between MySQL and Java.
 
 We have 3 user objects which are Users, Listeners, and Artists. Listener and Artist are inherited from Users. Also, we need 3 domain objects: playlist, song, and album. There are 2 different relationship between domain objects and users. One to many: Artist to Album, Album to Song. Many to many: Listener to Playlist, Song to Playlist and Listen to Artist. We also need a portable enumeration which is Genre.
 
@@ -59,7 +61,7 @@ All object relations can be referred to UML below:
 
 
 
-##### ii. User Interface (web browser)
+#### ii. User Interface via web browser (Javascript, css, html)
 
 We implemented the following webpage to display data and allow client editing data:
 
@@ -74,3 +76,11 @@ We implemented the following webpage to display data and allow client editing da
 -   Playlist Editor: user can modify the playlist information.
 -   Collecting List: list all listener and playlist relationship.
 -   Collecting Editor: user can modify collecting information.
+
+##### Demos:
+![list](https://github.com/ZhaoyanFeng0321/db_design_final_project_database/blob/master/demos/ArtistList.png)
+![editor](https://github.com/ZhaoyanFeng0321/db_design_final_project_database/blob/master/demos/artistEditor.png)
+![playlist](https://github.com/ZhaoyanFeng0321/db_design_final_project_database/blob/master/demos/playlist.png)
+
+
+
