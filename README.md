@@ -6,7 +6,7 @@ _Contributors: [Zhaoyan Feng](https://github.com/ZhaoyanFeng0321) / [Xiuge Zheng
 
 ### What to solve?
 
-In this project, we are trying to build a music platform called 'Artistener', which not only a implement generall features of music app, but also allows interaction between Listeners and Artists. Artist can release their new album and upload their new songs into different albums, and listeners can collect whatever their favorite songs into the playlist and follow the artist they like.
+In this project, we are trying to build a music platform called 'Artistener'(Artist + Listener), which not only a implement generall features of music app, but also allows interaction between Listeners and Artists. Artist can release their new album and upload their new songs into different albums, and listeners can collect whatever their favorite songs into the playlist and follow the artist they like.
 
 We start with describing the database as a UML class diagram. Then we implemented the relational database. In the database, we have user data models, domain object data models, one to many, many to many domain to domain object relationships, many to many user to user relationship, inheritance relationship and potable enumeration. Finally, we connect database to frontend, backend, and make sure all platforms are running correctly.
 
