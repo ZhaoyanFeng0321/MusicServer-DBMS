@@ -1,17 +1,14 @@
-## Music Management System (Simple Web App)
-This is a class final project of CS5200 Database Management. The main objective of this project is to build and maintain a database of a web apps based on client-server architecture.
+## Artistener (Music Web App)
+This is a class final project of CS5200 Database Management. The main objective of this project is to build and maintain a database of a music web apps based on client-server architecture. We use Java and MySQL to maintain database and create web browser for client to CRUD(Create, Read, Update, Delete) data. 
 
-_Contributed by Zhaoyan Feng / Xiuge Zheng / Mengyue Duan_
+_Contributed by Zhaoyan Feng / [Xiuge Zheng](https://github.com/ZhengHelen) / [Mengyue Duan](https://github.com/Cathy-duan))_
 
 
 ### What to solve?
 
-In this project, we are trying to build a music platform which can interact between Listener and Artist. Listener can collect whatever their favorite songs into the playlist. Also, Artist can release their new album and upload their new songs into different albums.
+In this project, we are trying to build a music platform called 'Artistener', which not only a implement generall features of music app, but also allows interaction between Listeners and Artists. Artist can release their new album and upload their new songs into different albums, and listeners can collect whatever their favorite songs into the playlist and follow the artist they like.
 
-We start with describing the database as a UML class diagram. Then we implemented the relational database. In the database, we have user data models, domain object data models, one to many, many to many domain to domain object relationships, many to many user to user relationship, inheritance relationship and potable enumeration.
-
-Finally, we connect database to frontend, backend, and make sure all platforms are running correctly.
-
+We start with describing the database as a UML class diagram. Then we implemented the relational database. In the database, we have user data models, domain object data models, one to many, many to many domain to domain object relationships, many to many user to user relationship, inheritance relationship and potable enumeration. Finally, we connect database to frontend, backend, and make sure all platforms are running correctly.
 
 
 ### How we solved?
