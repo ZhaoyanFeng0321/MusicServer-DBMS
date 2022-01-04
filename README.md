@@ -1,7 +1,7 @@
 ## Artistener (Music Web App)
 This is a class final project of CS5200 Database Management. The main objective of this project is to build and maintain a database of a music web apps based on client-server architecture. We use Java and MySQL to maintain database and create web browser for client to CRUD(Create, Read, Update, Delete) data. 
 
-_Contributed by [Zhaoyan Feng](https://github.com/ZhaoyanFeng0321) / [Xiuge Zheng](https://github.com/ZhengHelen) / [Mengyue Duan](https://github.com/Cathy-duan))_
+_Contributors: [Zhaoyan Feng](https://github.com/ZhaoyanFeng0321) / [Xiuge Zheng](https://github.com/ZhengHelen) / [Mengyue Duan](https://github.com/Cathy-duan)_
 
 
 ### What to solve?
