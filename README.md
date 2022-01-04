@@ -18,7 +18,7 @@ Finally, we connect database to frontend, backend, and make sure all platforms a
 
 Our solution based on the client-server Architecture:
 
-![螢幕截圖 2022-01-04 下午3.13.30](/Users/irisfeng/Desktop/螢幕截圖 2022-01-04 下午3.13.30.png)
+![Client-Server Architecture](https://github.com/ZhaoyanFeng0321/db_design_final_project_database/blob/master/CSA.png)
 
 
 
