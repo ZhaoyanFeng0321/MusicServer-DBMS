@@ -1,4 +1,4 @@
-## Music Management System (Simple Web Project)
+## Music Management System (Simple Web App)
 This is a class final project of CS5200 Database Management. The main objective of this project is to build and maintain a database of a web apps based on client-server architecture.
 
 _Contributed by Zhaoyan Feng / Xiuge Zheng / Mengyue Duan_
