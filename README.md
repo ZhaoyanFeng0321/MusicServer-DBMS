@@ -45,7 +45,9 @@ In our project, there are 3 domain objects – Playlist, Song and Album.
 
 -   Song: After Album is release, all songs’ information will be saved in Song with name and genre. Songs will be classified as Pop, Rock, Country, Jazz, Hiphop.
 
-All object relations can be referred to UML below: [https://github.com/ZhaoyanFeng0321/db_design_final_project_database/blob/master/db_design_final_project_UML.pdf](https://github.com/ZhaoyanFeng0321/db_design_final_project_database/blob/master)
+All object relations can be referred to UML below: 
+
+![UML](https://github.com/ZhaoyanFeng0321/db_design_final_project_database/blob/master/UML.jpeg)
 
 -   One to Many: 
     -   Artist to Album
