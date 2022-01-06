@@ -1,14 +1,19 @@
-## Artistener (Music Web App)
-This is a class final project of CS5200 Database Management. The main objective of this project is to build and maintain a database of a music web apps based on client-server architecture. We use Java and MySQL to maintain database and create web browser for client to CRUD(Create, Read, Update, Delete) data. 
+## Easy DataManager (Data Management System of Music Web App)
+
+This is a full stack database application use to manage data of a music web app. We use Java and MySQL to maintain database and create web browser user-interface for client to CRUD(Create, Read, Update, Delete) data. 
 
 _Contributors: [Zhaoyan Feng](https://github.com/ZhaoyanFeng0321) / [Xiuge Zheng](https://github.com/ZhengHelen) / [Mengyue Duan](https://github.com/Cathy-duan)_
 
 
 ### What to solve?
 
-In this project, we are trying to build a music platform called 'Artistener'(created compound word of Artist + Listener), which not only a implement generall features of music app, but also allows interaction between Listeners and Artists. Artist can release their new album and upload their new songs into different albums, and listeners can collect whatever their favorite songs into the playlist and follow the artist they like.
 
-We start with describing the database as a UML class diagram. Then we implemented the relational database. In the database, we have user data models, domain object data models, one to many, many to many domain to domain object relationships, many to many user to user relationship, inheritance relationship and potable enumeration. Finally, we connect database to frontend, backend, and make sure all platforms are running correctly.
+This project develop a full database application from the ground up:
+- First, we need to design and create a relational database for a music application, including define two users and several objects data models. 
+-  Second, we need to implement a relationship between record in different class, including one-to-many(e.g  one artist can have many alblums), many-to-many relationship(e.g one playlist can have many songs, one song can included in many playlists).
+
+- Finally, we need implement user interface screens that allow creating, reading, updating, and deleting each of the user models and domain object models. Implement relationships as navigations between related entities.
+
 
 
 ### How we solved?
